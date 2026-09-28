@@ -123,20 +123,26 @@ export const Header: React.FC = () => {
         </button>
 
         {/* Zone 2: Desktop Navigation Links (Visible on lg >= 1024px) */}
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-xs font-semibold uppercase tracking-wider text-stone-600">
+        <nav className="hidden lg:flex items-center gap-2 xl:gap-5 2xl:gap-7 text-xs font-semibold uppercase tracking-wider text-stone-600">
           {navLinks.map((link) => {
+            const IconComponent = link.icon;
             const isActive = currentRoute === link.route;
             return (
               <button
                 key={link.route}
                 onClick={() => handleNav(link.route)}
-                className={`py-1.5 relative transition-colors cursor-pointer flex items-center gap-1.5 group ${
-                  isActive ? 'text-emerald-950 font-bold' : 'hover:text-stone-950'
+                className={`py-1.5 px-1 relative transition-colors cursor-pointer flex items-center gap-1.5 group shrink-0 ${
+                  isActive ? 'text-emerald-950 font-bold' : 'hover:text-stone-950 text-stone-600'
                 }`}
               >
-                <span>{link.label}</span>
+                <IconComponent
+                  className={`w-3.5 h-3.5 transition-colors ${
+                    isActive ? 'text-emerald-800' : 'text-stone-400 group-hover:text-emerald-800'
+                  }`}
+                />
+                <span className="tracking-wide">{link.label}</span>
                 {link.badge && (
-                  <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-emerald-100 text-emerald-900 uppercase tracking-normal">
+                  <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-emerald-100 text-emerald-900 uppercase tracking-normal hidden xl:inline">
                     {link.badge}
                   </span>
                 )}

@@ -79,6 +79,11 @@ interface AppContextType {
   showToast: (message: string, type?: 'success' | 'info' | 'warning') => void;
   dismissToast: (id: string) => void;
 
+  // Developer Modal
+  isDeveloperModalOpen: boolean;
+  openDeveloperModal: () => void;
+  closeDeveloperModal: () => void;
+
   // Currency
   currency: 'AED';
 }
@@ -202,6 +207,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
   const [activeViewingModal, setActiveViewingModal] = useState<{ isOpen: boolean; property?: Property | Room } | null>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isDeveloperModalOpen, setIsDeveloperModalOpen] = useState(false);
 
   // Sync route on popstate
   useEffect(() => {
@@ -328,6 +334,9 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   const openAuthModal = () => setIsAuthModalOpen(true);
   const closeAuthModal = () => setIsAuthModalOpen(false);
 
+  const openDeveloperModal = () => setIsDeveloperModalOpen(true);
+  const closeDeveloperModal = () => setIsDeveloperModalOpen(false);
+
   const resetPropertyFilters = () => {
     setPropertyFilters({
       sortBy: 'recommended',
@@ -370,6 +379,9 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         isAuthModalOpen,
         openAuthModal,
         closeAuthModal,
+        isDeveloperModalOpen,
+        openDeveloperModal,
+        closeDeveloperModal,
         toasts,
         showToast,
         dismissToast,

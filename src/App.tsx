@@ -6,6 +6,7 @@ import { MobileNav } from './components/layout/MobileNav';
 import { ToastContainer } from './components/ui/Toast';
 import { ViewingModal } from './components/property/ViewingModal';
 import { AuthModal } from './components/views/AuthModal';
+import { DeveloperModal } from './components/ui/DeveloperModal';
 
 import { HomeView } from './components/views/HomeView';
 import { BrowsePropertiesView } from './components/views/BrowsePropertiesView';
@@ -70,6 +71,7 @@ const AppContent: React.FC = () => {
       <ToastContainer />
       <ViewingModal />
       <AuthModal />
+      <DeveloperModal />
     </div>
   );
 };

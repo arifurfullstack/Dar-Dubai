@@ -1,9 +1,9 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
-import { ShieldCheck, MapPin, Phone, Mail } from 'lucide-react';
+import { ShieldCheck, MapPin, Phone, Mail, MessageSquare, ExternalLink, Code2 } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const { navigateTo } = useApp();
+  const { navigateTo, openDeveloperModal } = useApp();
 
   return (
     <footer className="bg-stone-900 text-stone-300 pt-16 pb-12 border-t border-stone-800">
@@ -165,9 +165,80 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* Developer Attribution & Contact Panel */}
+        <div className="py-6 border-b border-stone-800 bg-stone-950/40 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 my-2 rounded-2xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+          <div className="space-y-2 text-xs text-stone-300">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="font-semibold text-white">Developed by:</span>
+              <a
+                href="https://huipper.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-emerald-400 hover:text-emerald-300 font-bold transition-colors"
+              >
+                <span>Huipper (huipper.com)</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-y-2 gap-x-4 text-stone-400 text-xs">
+              <div className="flex items-center gap-1.5">
+                <span className="text-stone-300 font-medium">Developer:</span>
+                <span className="text-white">Md Arifur Rahman</span>
+                <span className="text-stone-600">-</span>
+                <a
+                  href="https://wa.me/8801756601431?text=Hi%20Md%20Arifur%20Rahman,%20I%20am%20contacting%20you%20regarding%20the%20Dar%20Dubai%20platform%20developed%20by%20Huipper."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-emerald-400 hover:text-emerald-300 hover:underline font-mono"
+                >
+                  <MessageSquare className="w-3 h-3 text-emerald-400" />
+                  <span>whatsapp: +8801756601431</span>
+                </a>
+              </div>
+
+              <span className="hidden sm:inline text-stone-700">|</span>
+
+              <div className="flex items-center gap-1.5">
+                <span className="text-stone-300 font-medium">Developer:</span>
+                <span className="text-white">Sydul Islam</span>
+                <span className="text-stone-600">-</span>
+                <a
+                  href="https://wa.me/8801707991750?text=Hi%20Sydul%20Islam,%20I%20am%20contacting%20you%20regarding%20the%20Dar%20Dubai%20platform%20developed%20by%20Huipper."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-emerald-400 hover:text-emerald-300 hover:underline font-mono"
+                >
+                  <MessageSquare className="w-3 h-3 text-emerald-400" />
+                  <span>whatsapp: +8801707991750</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <button
+            onClick={openDeveloperModal}
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-500/30 text-emerald-300 hover:text-white transition-all cursor-pointer shadow-xs whitespace-nowrap active:scale-98"
+          >
+            <Code2 className="w-4 h-4 text-emerald-400" />
+            <span>Developer Credits & Pop-up Modal</span>
+          </button>
+        </div>
+
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
-          <p>© {new Date().getFullYear()} Dar Dubai Real Estate Technologies Ltd. All rights reserved.</p>
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
+          <p>
+            © {new Date().getFullYear()} Dar Dubai Real Estate Technologies Ltd. Developed by{' '}
+            <a
+              href="https://huipper.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-stone-400 hover:text-emerald-400 underline font-medium"
+            >
+              Huipper (huipper.com)
+            </a>
+            . All rights reserved.
+          </p>
           <div className="flex items-center gap-6">
             <span>Currency: <strong className="text-stone-300">AED (UAE Dirham)</strong></span>
             <span>Language: <strong className="text-stone-300">English (EN)</strong></span>
