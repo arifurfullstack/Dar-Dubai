@@ -1,0 +1,6 @@
+{
+  "name": "Dar Dubai | Dubai Property & Rooms Marketplace",
+  "description": "Premium Dubai real estate marketplace for discovering apartments, luxury villas, townhouses, and rooms for rent and sale across Dubai.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
